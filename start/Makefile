@@ -30,3 +30,32 @@ new:
 	make destroy && \
 	docker-compose -f docker-compose.yml -f docker-compose.es.yml up -d && \
 	make logs
+
+## IDunion
+
+idunion:
+	make idunion_new
+
+idunion_new:
+	make idunion_destroy && \
+	docker-compose -f docker-compose.idunion.yml up -d && \
+	make idunion_npm_audit_fix && \
+	make idunion_logs
+
+idunion_npm_audit_fix:
+	sh npm_audit_fix.idunion.sh
+
+idunion_up:
+	docker-compose -f docker-compose.idunion.yml up && \
+        make idunion_logs
+
+idunion_down:
+	docker-compose -f docker-compose.idunion.yml  down --remove-orphans
+
+idunion_logs:
+	docker-compose -f docker-compose.idunion.yml logs 
+
+idunion_destroy:
+	docker-compose -f docker-compose.idunion.yml down --remove-orphans --volumes
+
+

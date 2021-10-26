@@ -1,0 +1,18 @@
+[
+  {
+    "id": "IDUNION_TESTNET",
+    "aliases": [
+      "IDUNION_TESTNET"
+    ],
+    "ui": {
+      "priority": 3,
+      "display": "IDunion_testnet",
+      "display-long": "IDunion Test Network",
+      "description": "IDunion Test Network for test use cases.",
+      "logo-address": "/static/hlindy.png"
+    },
+    "es" : {
+      "index": "txs-iduniontest"
+    }
+  }
+]
